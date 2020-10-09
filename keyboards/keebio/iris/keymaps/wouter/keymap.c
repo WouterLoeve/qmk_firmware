@@ -1,12 +1,26 @@
 #include QMK_KEYBOARD_H
 
-
+/*
+ * Layer definitions
+ */
 #define _QWERTY 0
 #define _LOWER 1
 #define _RAISE 2
 #define _ADJUST 3
 #define _GAMING 4
 #define _GAMING_ARROW 5
+
+// // Now define the array of layers. Later layers take precedence
+// const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
+//     my_capslock_layer,
+//     my_layer1_layer,    // Overrides caps lock layer
+//     my_layer2_layer     // Overrides other layers
+// );
+
+// void keyboard_post_init_user(void) {
+//     // Enable the LED layers
+//     rgblight_layers = my_rgb_layers;
+// }
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
@@ -173,3 +187,16 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         }
     }
 }
+
+
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//     // Both layers will light up if both kb layers are active
+//     rgblight_set_layer_state(1, layer_state_cmp(state, 1));
+//     rgblight_set_layer_state(2, layer_state_cmp(state, 2));
+//     return state;
+// }
+
+// bool led_update_user(led_t led_state) {
+//     rgblight_set_layer_state(0, led_state.caps_lock);
+//     return true;
+// }
